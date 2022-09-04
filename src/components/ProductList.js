@@ -1,13 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { nanoid } from "nanoid";
 
 export default function ProductList() {
   const itemsList = useSelector((state) => state.productList);
   return (
     <ul className="product-container">
       {itemsList.map((o) => (
-        <li key={nanoid()}>
+        <li key={o.id}>
           {Number(o.discount) !== 0 ? (
             <div className="product-discount">{o.discount}%</div>
           ) : null}
